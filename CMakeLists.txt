@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.21)
+project(VolianSTD)
+set(CMAKE_CXX_STANDARD 20)
+include_directories(include)
+add_executable(VolianSTD include/unique_ptr.hpp test/test_unique_ptr.cpp test/test.cpp)
