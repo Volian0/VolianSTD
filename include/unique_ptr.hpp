@@ -33,7 +33,7 @@ namespace volian
 			: m_ptr{t_unique_ptr.release()}
 		{}
 
-		constexpr auto operator=(UniquePtr &&t_unique_ptr) noexcept -> UniquePtr &
+		auto operator=(UniquePtr &&t_unique_ptr) noexcept -> UniquePtr &
 		{
 			if (this != &t_unique_ptr)
 			{
@@ -44,7 +44,7 @@ namespace volian
 
 		[[nodiscard]] constexpr auto release() noexcept -> T *
 		{
-			const auto ptr = m_ptr;
+			const auto ptr{m_ptr};
 			m_ptr = nullptr;
 			return ptr;
 		}
@@ -57,7 +57,7 @@ namespace volian
 
 		constexpr auto swap(UniquePtr &t_unique_ptr) noexcept -> void
 		{
-			const auto ptr = m_ptr;
+			const auto ptr{m_ptr};
 			m_ptr = t_unique_ptr.m_ptr;
 			t_unique_ptr.m_ptr = ptr;
 		}
